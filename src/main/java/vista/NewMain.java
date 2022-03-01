@@ -27,7 +27,7 @@ public class NewMain {
            System.out.println(p.getDificultad());
            
            Document [] d = p.getRespuestas();
-           System.out.println(d.length);
+           System.out.println("a" + d.length);
            System.out.println(d[0]);
            System.out.println(d[1]);
            
