@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public abstract class Quiz {
     protected String nombre;
     protected ArrayList preguntas;
+    
 public Quiz(String nombre){
     this.nombre = nombre;
     preguntas = new ArrayList();

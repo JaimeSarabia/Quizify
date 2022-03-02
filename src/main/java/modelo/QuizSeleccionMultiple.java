@@ -11,14 +11,15 @@ import java.io.IOException;
  * @author jaime
  */
 public class QuizSeleccionMultiple extends Quiz {
+    
     public QuizSeleccionMultiple(String nombre){
         super(nombre);
     }
 
     @Override
-    public Pregunta crearPregunta(String enunciado, String instrucciones, float puntuacion) throws IOException {
-    Pregunta pregunta = new PreguntaSeleccionMultiple (enunciado, instrucciones, puntuacion);
-    return pregunta;
+    public PreguntaAbstracta crearPregunta(String enunciado, String instrucciones, float puntuacion) throws IOException {
+        PreguntaAbstracta pregunta = new PreguntaSeleccionMultiple (enunciado, instrucciones, puntuacion);
+        return pregunta;
     }
     
 }

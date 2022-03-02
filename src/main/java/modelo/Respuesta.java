@@ -11,10 +11,8 @@ package modelo;
 public abstract class Respuesta {
     protected String descripcion;
     
-    public Respuesta(){
-        
+    public Respuesta(String descripcion){
+        this.descripcion = descripcion; 
     }
-     public String obtenerDescricpion(){
-         return this.descripcion;
-     }
+     public abstract String obtenerDescricpion(); 
 }

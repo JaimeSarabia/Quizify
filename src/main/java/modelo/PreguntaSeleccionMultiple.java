@@ -8,7 +8,16 @@ package modelo;
  *
  * @author jaime
  */
-public class PreguntaSeleccionMultiple extends Pregunta {
+public class PreguntaSeleccionMultiple extends PreguntaAbstracta {
     
-    
+   public PreguntaSeleccionMultiple (String enunciado, String instrucciones, float puntuacion){
+        super(enunciado, instrucciones, puntuacion); 
+    }
+
+
+    public Respuesta crearRespuesta(String descripcion) {
+         Respuesta respuesta = new RespuestaSeleccion(descripcion); 
+         return respuesta; 
+    }
+ 
 }

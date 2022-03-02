@@ -11,11 +11,23 @@ import java.io.IOException;
  * @author jaime
  */
 public class QuizAbierto extends Quiz {
+    
+    public QuizAbierto(String nombre){
+        super(nombre); 
+    }
 
+    /**
+     *
+     * @param enunciado
+     * @param instrucciones
+     * @param puntuacion
+     * @return
+     * @throws IOException
+     */
     @Override
-    public Pregunta crearPregunta(String enunciado, String instrucciones, float puntuacion) throws IOException {
-    Pregunta pregunta = new PreguntaAbierta (enunciado, instrucciones, puntuacion);
-    return pregunta;        
+    public PreguntaAbstracta crearPregunta(String enunciado, String instrucciones, float puntuacion) throws IOException {
+        PreguntaAbstracta pregunta = new PreguntaAbierta (enunciado, instrucciones, puntuacion);
+        return pregunta;        
     }
     
 }
