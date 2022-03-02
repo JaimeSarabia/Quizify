@@ -21,14 +21,14 @@ public Quiz(String nombre){
 }    
 
 
-public boolean añadirPregunta(Pregunta pregunta){
+public boolean añadirPregunta(PreguntaAbstracta pregunta){
     return preguntas.add(pregunta);
     
 }
 
-public boolean eliminarPregunta(Pregunta pregunta){
+public boolean eliminarPregunta(PreguntaAbstracta pregunta){
     return preguntas.remove(pregunta);
 }
 
-public abstract Pregunta crearPregunta(String enunciado, String instrucciones, float puntuacion) throws IOException;
+public abstract PreguntaAbstracta crearPregunta(String enunciado, String instrucciones, float puntuacion) throws IOException;
 }
