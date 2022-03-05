@@ -19,17 +19,16 @@ public class NewMain {
     static ControladorPreguntas controlador;
     public static void main(String[] args) {
         
-        MongoClient m = Conexion.obtenerInstanciaAccesoBD();
-        controlador = new ControladorPreguntas();
-        if(m != null) {
+        Conexion c = Conexion.obtenerConexion(); 
+        if(c != null) {
             
-           Pregunta p = controlador.obtenerPregunta("text", "Responda si la afirmacion siguiente es cierta: Hola que tal");
+           Pregunta p = c.obtenerPregunta("text", "pregunta 2");
            System.out.println(p.getDificultad());
            
-           Document [] d = p.getRespuestas();
+           /*Document [] d = p.getRespuestas();
            System.out.println("a" + d.length);
            System.out.println(d[0]);
-           System.out.println(d[1]);
+           System.out.println(d[1]);*/
            
            String [] respe = {"Verdadero","Falso"};
            //controlador.insertPregunta("Responda si la afirmacion siguiente es cierta: Hola que tal", "alta", respe);
