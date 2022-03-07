@@ -5,6 +5,7 @@ import com.mongodb.client.MongoDatabase;
 import javax.swing.JOptionPane;
 
 import controlador.ControladorPreguntas;
+import controlador.ControladorUsuarios;
 
 public class Conexion {
     private static Conexion conexion = null; 
@@ -15,6 +16,7 @@ public class Conexion {
     private final String DB = "Quizzify";
     
     ControladorPreguntas cp;
+    ControladorUsuarios cu;
         
     private Conexion() {
         try {
@@ -23,7 +25,8 @@ public class Conexion {
         }catch(MongoException e) {
             JOptionPane.showMessageDialog(null, "Error en conexión a MONGODB " + e.toString());
         }
-        cp = new ControladorPreguntas(db);
+        cp = new ControladorPreguntas(db.getCollection("Preguntas"));
+        cu = new ControladorUsuarios(db.getCollection("Alumnos"));
     }
     
     public static Conexion obtenerConexion() {
@@ -39,6 +42,10 @@ public class Conexion {
     
     public void insertarPregunta(String text, String dificultad, String [] respuestas) {
         cp.insertPregunta(text, dificultad, respuestas);
+    }
+    
+    public UsuarioAlumno login(String email, String contraseña) {
+        return cu.login(email, contraseña);
     }
     
 }

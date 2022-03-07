@@ -3,20 +3,17 @@ package controlador;
 import com.google.gson.Gson;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import modelo.Conexion;
 import modelo.Pregunta;
 import org.bson.Document;
 import static java.util.Arrays.asList;
 
 public class ControladorPreguntas implements IControladorPreguntas {
-    MongoDatabase db;
     MongoCollection preguntas;
     
     Conexion con;
-    public ControladorPreguntas(MongoDatabase db){
-        db = db;
-        preguntas = db.getCollection("Preguntas");
+    public ControladorPreguntas(MongoCollection collection){
+        preguntas = collection;
     }
      
     public Pregunta obtenerPregunta(String key, String valor) {
